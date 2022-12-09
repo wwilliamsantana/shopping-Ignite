@@ -3,8 +3,8 @@ import { styled } from "../styles"
 
 const Button = styled("button", {
 
-  backgroundColor: "$rocketseat",
-  padding: "4px 6px",
+  backgroundColor: "$green500",
+  padding: "10px 12px",
   borderRadius: 6,
   color: "White",
 
