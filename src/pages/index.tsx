@@ -7,6 +7,7 @@ const Button = styled("button", {
   padding: "10px 12px",
   borderRadius: 6,
   color: "White",
+  alignSelf: "flex-start",
 
   "&:hover":{
     filter: "brightness(0.8)"
