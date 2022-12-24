@@ -13,7 +13,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
   }
 
 
-  const successUrl = `${process.env.NEXT_APP}/success`
+  const successUrl = `${process.env.NEXT_APP}/success?session_id={CHECKOUT_SESSION_ID}`
   const cancelUrl = `${process.env.NEXT_APP}/`
 
   const checkoutSession = await stripe.checkout.sessions.create({
