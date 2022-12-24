@@ -2,7 +2,16 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { stripe } from "../../lib/stripe";
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse){
-  const priceId = "price_1MECmUGa4b7MtFF4va0Rdfkc"
+  const { priceId } = request.body
+
+  if(request.method !== "POST"){
+    return response.status(405).json({error: "Method not allowed."})
+  }
+
+  if(!priceId){
+    return response.status(400).json({error: "Price not found."})
+  }
+
 
   const successUrl = `${process.env.NEXT_APP}/success`
   const cancelUrl = `${process.env.NEXT_APP}/`
@@ -14,7 +23,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
     line_items: [
       {
         price: priceId,
-        quantity: 2
+        quantity: 1
       }
     ]
   })
